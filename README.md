@@ -1,4 +1,5 @@
 # Cakephp Project template.
+[![Circle CI](https://circleci.com/gh/mongorian-chop/citest.svg?style=svg)](https://circleci.com/gh/mongorian-chop/cake-template)
 
 ## composer install
 composer install
