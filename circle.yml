@@ -1,0 +1,14 @@
+## Customize the test machine
+machine:
+    php:
+        version: 5.5.9
+dependencies:
+    - composer install
+    - mkdir -p app/tmp/tests
+    - chmod -R 777 app/tmp/tests
+    - mkdir -p app2/tmp/tests
+    - chmod -R 777 app2/tmp/tests
+test:
+      override:
+          - ./Vendor/bin/phing build
+
