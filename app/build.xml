@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="App" default="build">
+    <property name="basedir" value="." override="true" />
+
+    <target name="build" depends="phpcs, phpmd, phpcpd, phpunit" />
+
+    <target name="phpcs" description="PHPCS">
+        <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
+            <formatter type="checkstyle" outfile="${basedir}/tmp/tests/phpcs.xml" />
+        </phpcodesniffer>
+    </target>
+
+    <target name="phpmd">
+        <phpmd rulesets="${basedir}/../ruleset.xml">
+            <fileset dir="./">
+                <include name="${basedir}/**/*.php" />
+                <exclude name="${basedir}/Vendor/" />
+            </fileset>
+            <formatter type="xml" outfile="${basedir}/tmp/tests/phpmd.xml" />
+        </phpmd>
+    </target>
+
+    <target name="phpcpd" description="PHPCPD">
+        <exec dir="${basedir}" executable="phpcpd" output="${basedir}/tmp/tests/phpcpd.log">
+            <arg line="--log-pmd ${basedir}/tmp/tests/phpcpd.xml" />
+            <arg line="--names *.php,*.phtml" />
+            <arg line="${basedir}" />
+        </exec>
+    </target>
+
+    <target name="phpunit" >
+        <echo msg="${basedir}" />
+        <echo msg="${basedir}/Console/cake" />
+        <exec executable="${basedir}/Console/cake" >
+            <arg line="test app AllTests" />
+        </exec>
+        <exec executable="${basedir}/Console/cake" >
+            <arg line="
+                test
+                --log-junit=${basedir}/tmp/tests/unittest.xml
+                app AllTests" />
+        </exec>
+    </target>
+
+</project>

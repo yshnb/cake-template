@@ -1,0 +1,26 @@
+{
+    "name": "tsukasa_hk/cake",
+    "authors": [
+        {
+            "name": "Tsukasa Hoki",
+            "email": "tsukasa.hoki@gmail.com"
+        }
+    ],
+    "require": {
+      "php": ">=5.3.10",
+      "cakephp/cakephp": "2.6.8",
+      "josegonzalez/cakephp-environments": "1.0.0",
+      "cakedc/migrations": "~2.3"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "3.7.*@dev",
+      "cakephp/debug_kit" : "2.2.*",
+      "phing/phing": "~2.8",
+      "cakephp/cakephp-codesniffer": "0.1.*",
+      "phpmd/phpmd": "2.*",
+      "sebastian/phpcpd": "2.*"
+    },
+    "config": {
+      "vendor-dir": "Vendor/"
+    }
+}
