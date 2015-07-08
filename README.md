@@ -5,10 +5,10 @@
 composer install
 
 ## create tmp directory
-mkdir -p app/tmp/tests
-chmod -R 777 app/tmp/tests
-mkdir -p app2/tmp/tests
-chmod -R 777 app2/tmp/tests
+- mkdir -p app/tmp/tests
+- chmod -R 777 app/tmp/tests
+- mkdir -p app2/tmp/tests
+- chmod -R 777 app2/tmp/tests
 
 ## build-in server start
 app
@@ -19,3 +19,8 @@ app2
 
 ## phing task
 ./Vendor/bin/phing build
+
+## ci
+githubでPersonal access tokensを作る
+- Environment variables
+    GITHUB_ACCESS_TOKEN
