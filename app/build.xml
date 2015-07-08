@@ -21,16 +21,16 @@
     </target>
 
     <target name="phpcpd" description="PHPCPD">
-        <exec dir="${basedir}" executable="phpcpd" output="${basedir}/tmp/tests/phpcpd.log">
-            <arg line="--log-pmd ${basedir}/tmp/tests/phpcpd.xml" />
-            <arg line="--names *.php,*.phtml" />
-            <arg line="${basedir}" />
-        </exec>
+        <phpcpd minTokens="10">
+            <fileset dir="${basedir}">
+                <include name="**/**/*.php"/>
+            </fileset>
+            <formatter type="pmd"
+                outfile="${basedir}/tmp/tests/cpd.xml"/>
+        </phpcpd>
     </target>
 
     <target name="phpunit" >
-        <echo msg="${basedir}" />
-        <echo msg="${basedir}/Console/cake" />
         <exec executable="${basedir}/Console/cake" >
             <arg line="test app AllTests" />
         </exec>
