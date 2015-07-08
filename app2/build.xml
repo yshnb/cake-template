@@ -39,4 +39,15 @@
         </exec>
     </target>
 
+    <target name="caketest" description="Run CakePHP unit tests with PHPUnit">
+        <exec dir="${basedir}" executable="${basedir}/Console/cake" output="${basedir}/tmp/tests/caketest.log">
+            <arg line="test" />
+            <arg line="--log-junit=${basedir}/tmp/tests/phpunit.xml" />
+            <arg line="--coverage-html=${basedir}/tmp/tests/build/coverage/" />
+            <arg line="--coverage-clover=${basedir}/tmp/tests/coverage.xml" />
+            <arg line="app" />
+            <arg line="AllTests" />
+        </exec>
+    </target>
+
 </project>
