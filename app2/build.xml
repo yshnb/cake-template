@@ -34,11 +34,8 @@
         <exec executable="${basedir}/Console/cake" >
             <arg line="test app AllTests" />
         </exec>
-        <exec executable="${basedir}/Console/cake" >
-            <arg line="
-                test
-                --log-junit=${basedir}/tmp/tests/unittest.xml
-                app AllTests" />
+        <exec executable="${basedir}/Console/cake" passthru="true">
+            <arg line="test app AllTests" />
         </exec>
     </target>
 
