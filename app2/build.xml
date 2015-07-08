@@ -34,7 +34,7 @@
         <exec executable="${basedir}/Console/cake" >
             <arg line="test app AllTests" />
         </exec>
-        <exec executable="${basedir}/Console/cake" passthru="true">
+        <exec executable="${basedir}/Console/cake">
             <arg line="test app AllTests" />
         </exec>
     </target>
