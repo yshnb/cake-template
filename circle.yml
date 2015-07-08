@@ -4,7 +4,7 @@ machine:
         version: 5.5.9
 dependencies:
     pre:
-        - composer install
+        - composer composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN install
         - mkdir -p app/tmp/tests
         - chmod -R 777 app/tmp/tests
         - mkdir -p app2/tmp/tests
