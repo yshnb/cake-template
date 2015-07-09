@@ -13,10 +13,10 @@ dependencies:
 test:
       override:
           - ./Vendor/bin/phing build
-          - find . -type f -regex ".*tests/phpunit*.xml" -exec cat {} \;
+          - find . -type f -regex ".*tests/junit*.xml" -exec cat {} \;
       post:
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-          - find . -type f -regex ".*tests/phpunit*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+          - find . -type f -regex ".*tests/junit*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -R $CIRCLE_TEST_REPORTS/* $CIRCLE_ARTIFACTS/
 
 
