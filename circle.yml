@@ -40,6 +40,7 @@ test:
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
       post:
+          - find . -type f -regex ".*tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -R $CIRCLE_TEST_REPORTS/* $CIRCLE_ARTIFACTS/
