@@ -32,7 +32,7 @@
 
     <target name="phpunit" >
         <echo msg="${basedir}/Console/cake" />
-        <exec executable="${basedir}/Console/cake" output="${basedir}/tmp/tests/caketest.log}">
+        <exec executable="${basedir}/Console/cake" output="${basedir}/tmp/tests/caketest.log">
             <arg line="test" />
             <arg line="--log-junit=${basedir}/tmp/tests/phpunit.xml" />
             <arg line="app" />
