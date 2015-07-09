@@ -1,7 +1,7 @@
 ## Customize the test machine
 machine:
     php:
-        version: 5.5.9
+        version: 5.6.5
 dependencies:
     pre:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
