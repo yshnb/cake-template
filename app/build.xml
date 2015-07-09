@@ -31,8 +31,7 @@
     </target>
 
     <target name="phpunit" >
-        <echo msg="${basedir}/Console/cake" />
-        <exec executable="${basedir}/Console/cake" passthru="true" checkreturn="true">
+        <exec executable="${basedir}/Console/cake" checkreturn="true">
             <arg line="test" />
             <arg line="--log-junit=${basedir}/tmp/tests/junit.xml" />
             <arg line="app" />
