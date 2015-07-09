@@ -9,7 +9,6 @@ app/tmp
 /chef-repo/site-cookbooks
 
 /*/tmp/*
-/*/Config/core.php
 /*/Config/database.php
 /*/Config/email.php
 /vendors/*
