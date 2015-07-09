@@ -13,4 +13,8 @@ dependencies:
 test:
       override:
           - ./Vendor/bin/phing build
+      post:
+          - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+          - find . -type f -regex ".*/tmp/tests/phpunit.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
 
