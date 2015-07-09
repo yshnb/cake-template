@@ -6,7 +6,8 @@
 
     <target name="phpcs" description="PHPCS">
         <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
-            <formatter type="checkstyle" outfile="${basedir}/tmp/tests/phpcs.xml" />
+            <!--<formatter type="checkstyle" outfile="${basedir}/tmp/tests/phpcs.xml" />-->
+            <formatter type="checkstyle" usefile="true" outfile="${basedir}/tmp/tests/phpmd.xml" />
         </phpcodesniffer>
     </target>
 
