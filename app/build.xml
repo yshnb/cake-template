@@ -2,7 +2,7 @@
 <project name="App" default="build">
     <property name="basedir" value="." override="true" />
 
-    <target name="build" depends="phpcs, phpmd, phpcpd, phpunit" />
+    <target name="build" depends="phpcs, phpmd, phpcpd, phpunit, caketest" />
 
     <target name="phpcs" description="PHPCS">
         <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
@@ -30,7 +30,6 @@
         </phpcpd>
     </target>
 
-    <!--
     <target name="phpunit" >
         <exec executable="${basedir}/Console/cake" >
             <arg line="test app AllTests" />
@@ -41,9 +40,8 @@
                 app AllTests" />
         </exec>
     </target>
-    -->
 
-    <target name="phpunit" description="Run CakePHP unit tests with PHPUnit">
+    <target name="caketest" description="Run CakePHP unit tests with PHPUnit">
         <exec dir="${basedir}" executable="./Console/cake" output="${basedir}/tmp/tests/caketest.log">
             <arg line="test" />
             <arg line="--log-junit=${basedir}/tmp/tests/phpunit.xml" />
