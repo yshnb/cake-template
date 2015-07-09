@@ -2,7 +2,7 @@
 <project name="App" default="build">
     <property name="basedir" value="." override="true" />
 
-    <target name="build" depends="phpcs, phpmd, phpcpd, phpunit" />
+    <target name="build" depends="phpunit, phpcs, phpmd, phpcpd" />
 
     <target name="phpcs" description="PHPCS">
         <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">

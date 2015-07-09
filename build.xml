@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="all" default="build">
     <target name="build" >
-        <phing phingfile="app/build.xml" inheritRefs="true" >
+        <phing phingfile="app/build.xml" inheritRefs="true" haltonfailure="true">
             <property name="basedir" value="./app" />
         </phing>
-        <phing phingfile="app2/build.xml" inheritRefs="true">
+        <phing phingfile="app2/build.xml" inheritRefs="true" haltonfailure="true">
             <property name="basedir" value="./app2" />
         </phing>
     </target>
