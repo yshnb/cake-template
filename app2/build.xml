@@ -35,7 +35,10 @@
             <arg line="test app AllTests" />
         </exec>
         <exec executable="${basedir}/Console/cake" logoutput="true">
-            <arg line="test app AllTests" />
+            <arg line="test" />
+            <arg line="--log-junit=${basedir}/tmp/tests/phpunit.xml" />
+            <arg line="app" />
+            <arg line="AllTests" />
         </exec>
     </target>
 
