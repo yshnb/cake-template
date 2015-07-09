@@ -30,6 +30,7 @@
         </phpcpd>
     </target>
 
+    <!--
     <target name="phpunit" >
         <exec executable="${basedir}/Console/cake" >
             <arg line="test app AllTests" />
@@ -37,13 +38,13 @@
         <exec executable="${basedir}/Console/cake" >
             <arg line="
                 test
-                --log-junit=${basedir}/tmp/tests/unittest.xml
                 app AllTests" />
         </exec>
     </target>
+    -->
 
-    <target name="caketest" description="Run CakePHP unit tests with PHPUnit">
-        <exec dir="${basedir}" executable="${basedir}/Console/cake" output="${basedir}/tmp/tests/caketest.log">
+    <target name="phpunit" description="Run CakePHP unit tests with PHPUnit">
+        <exec dir="${basedir}" executable="./Console/cake" output="${basedir}/tmp/tests/caketest.log">
             <arg line="test" />
             <arg line="--log-junit=${basedir}/tmp/tests/phpunit.xml" />
             <arg line="--coverage-html=${basedir}/tmp/tests/build/coverage/" />
