@@ -10,6 +10,31 @@ dependencies:
         - chmod -R 777 app/tmp/tests
         - mkdir -p app2/tmp/tests
         - chmod -R 777 app2/tmp/tests
+    post:
+        - echo "<?php
+          class DATABASE_CONFIG {
+              public \$test = array(
+              'datasource' => 'Database/Mysql',
+              'persistent' => false,
+              'host' => '127.0.0.1',
+              'login' => 'ubuntu',
+              'password' => '',
+              'database' => 'circle_test',
+              'prefix' => ''
+              );
+          }" > app/Config/database.php
+        - echo "<?php
+          class DATABASE_CONFIG {
+              public \$test = array(
+              'datasource' => 'Database/Mysql',
+              'persistent' => false,
+              'host' => '127.0.0.1',
+              'login' => 'ubuntu',
+              'password' => '',
+              'database' => 'circle_test',
+              'prefix' => ''
+              );
+          }" > app2/Config/database.php
 test:
       override:
           - ./Vendor/bin/phing build
