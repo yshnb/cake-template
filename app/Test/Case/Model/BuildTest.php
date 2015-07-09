@@ -19,4 +19,8 @@ class BuildTest extends CakeTestCase {
         $this->assertEquals(true, true);
         //$this->assertEquals(true, false);
     }
+
+    public function testSecond() {
+        $this->assertEquals(true, true);
+    }
 }
