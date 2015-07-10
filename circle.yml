@@ -8,7 +8,6 @@ services:
 database:
     post:
         - mysql -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/setup.sql
-        - mysql sample_db -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/data.sql
 dependencies:
     pre:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
@@ -26,7 +25,7 @@ dependencies:
               'host' => '127.0.0.1',
               'login' => 'ubuntu',
               'password' => '',
-              'database' => 'circle_test',
+              'database' => 'sample_db',
               'prefix' => ''
               );
           }" > app/Config/database.php
@@ -38,7 +37,7 @@ dependencies:
               'host' => '127.0.0.1',
               'login' => 'ubuntu',
               'password' => '',
-              'database' => 'circle_test',
+              'database' => 'sample_db',
               'prefix' => ''
               );
           }" > app2/Config/database.php
