@@ -20,6 +20,7 @@ class FirstTest extends CakeTestCase {
     }
 
     public function testGetAllData() {
-        $this->assertEquals(3, $this->First->getAllData());
+        $data = $this->First->getAllData();
+        $this->assertEquals(3, count($data));
     }
 }
