@@ -23,4 +23,8 @@ class BuildTest extends CakeTestCase {
     public function testSecond() {
         $this->assertEquals(true, true);
     }
+
+    public function testJp() {
+        $this->assertEquals("あああ", "あああ");
+    }
 }
