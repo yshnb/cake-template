@@ -25,3 +25,5 @@ githubでPersonal access tokensを作る
 - Environment variables
     GITHUB_ACCESS_TOKEN
 
+## [ci skip]
+コミットログに書くとCIをやらない
