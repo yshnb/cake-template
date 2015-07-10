@@ -2,9 +2,7 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $this->fetch('title'); ?>
-	</title>
+	<title><?php echo $this->fetch('title'); ?></title>
 	<?php
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
