@@ -2,9 +2,9 @@
 machine:
     php:
         version: 5.6.5
-services:
-    - mysql
-    - redis
+    services:
+        - mysql
+        - redis
 database:
     post:
         - mysql -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/setup.sql
