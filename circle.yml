@@ -28,6 +28,16 @@ dependencies:
               'database' => 'sample_db',
               'prefix' => ''
               );
+
+              public \$test = array(
+              'datasource' => 'Database/Mysql',
+              'persistent' => false,
+              'host' => '127.0.0.1',
+              'login' => 'ubuntu',
+              'password' => '',
+              'database' => 'test_sample_db',
+              'prefix' => ''
+              );
           }" > app/Config/database.php
         - echo "<?php
           class DATABASE_CONFIG {
@@ -38,6 +48,16 @@ dependencies:
               'login' => 'ubuntu',
               'password' => '',
               'database' => 'sample_db',
+              'prefix' => ''
+              );
+
+              public \$test = array(
+              'datasource' => 'Database/Mysql',
+              'persistent' => false,
+              'host' => '127.0.0.1',
+              'login' => 'ubuntu',
+              'password' => '',
+              'database' => 'test_sample_db',
               'prefix' => ''
               );
           }" > app2/Config/database.php
