@@ -2,6 +2,13 @@
 machine:
     php:
         version: 5.6.5
+services:
+    - mysql
+    - redis
+database:
+    post:
+        - mysql -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/setup.sql
+        - mysql sample_db -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/data.sql
 dependencies:
     pre:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
@@ -40,7 +47,7 @@ test:
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
       post:
-          - find . -type f -regex ".*tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
+          - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -R $CIRCLE_TEST_REPORTS/* $CIRCLE_ARTIFACTS/
