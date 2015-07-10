@@ -41,6 +41,7 @@ dependencies:
               'prefix' => ''
               );
           }" > app2/Config/database.php
+        - cd app; ./Console/cake Migrations.migration run all -p
 test:
       override:
           - ./Vendor/bin/phing build

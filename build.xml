@@ -8,5 +8,13 @@
             <property name="basedir" value="./app2" />
         </phing>
     </target>
+    <target name="local-build" >
+        <phing phingfile="app/build.xml" target="local-build" inheritRefs="true">
+            <property name="basedir" value="./app" />
+        </phing>
+        <phing phingfile="app2/build.xml" target="local-build" inheritRefs="true">
+            <property name="basedir" value="./app2" />
+        </phing>
+    </target>
 </project>
 
