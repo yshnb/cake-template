@@ -75,7 +75,6 @@ dependencies:
           }" > app2/Config/database.php
         - chmod -R 777 app/tmp
         - chmod -R 777 app2/tmp
-        - cd $HOME/$CIRCLE_PROJECT_REPONAME/
         - npm install -g phantomjs@1.9.7-14
         - npm install -g casperjs@1.1.0-beta3
         - pecl install redis
@@ -90,9 +89,7 @@ test:
           - mysql -h 127.0.0.1 -u ubuntu sample_db < ./e2e/default.sql
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
-          - cd $HOME/$CIRCLE_PROJECT_REPONAME/e2e/
-          - pwd
-          - casperjs test ./casper.js
+          - casperjs test ./e2e/casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
