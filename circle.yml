@@ -13,16 +13,7 @@ dependencies:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
         - composer install --prefer-source --no-interaction
         - mkdir -p app/tmp/tests
-        - chmod -R 777 app/tmp
         - mkdir -p app2/tmp/tests
-        - chmod -R 777 app2/tmp
-        - cd $HOME/$CIRCLE_PROJECT_REPONAME/
-        - npm install -g phantomjs@1.9.7-14
-        - npm install -g casperjs
-        - pecl install redis
-        - cp $HOME/$CIRCLE_PROJECT_REPONAME/app.conf /etc/apache2/sites-available
-        - a2ensite app.conf
-        - sudo service apache2 restart
     post:
         - echo "<?php
           class DATABASE_CONFIG {
@@ -82,11 +73,17 @@ dependencies:
               'db' => '0'
               );
           }" > app2/Config/database.php
+        - chmod -R 777 app/tmp
+        - chmod -R 777 app2/tmp
+        - cd $HOME/$CIRCLE_PROJECT_REPONAME/
+        - npm install -g phantomjs@1.9.7-14
+        - npm install -g casperjs@1.1.0-beta3
+        - pecl install redis
+        - cp $HOME/$CIRCLE_PROJECT_REPONAME/app.conf /etc/apache2/sites-available
+        - a2ensite app.conf
+        - sudo service apache2 restart
 test:
       override:
-          - sudo service apache2 restart
-          - sudo chmod -R 777 app/tmp
-          - sudo chmod -R 777 app2/tmp
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
           - ./app/Console/cake schema create -y
