@@ -19,7 +19,9 @@ dependencies:
         - cd $HOME/$CIRCLE_PROJECT_REPONAME/
         - npm install -g phantomjs@1.9.7-14
         - npm install -g casperjs
-        - php -S localhost:8080 -c ~/.phpenv/versions/$(phpenv global)/etc/conf.d/ -t app/webroot
+        - cp $HOME/$CIRCLE_PROJECT_REPONAME/app.conf /etc/apache2/sites-available
+        - a2ensite app.conf
+        - sudo service apache2 restart
     post:
         - echo "<?php
           class DATABASE_CONFIG {
