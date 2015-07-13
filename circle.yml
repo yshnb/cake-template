@@ -13,9 +13,9 @@ dependencies:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
         - composer install --prefer-source --no-interaction
         - mkdir -p app/tmp/tests
-        - chmod -R 777 app/tmp/tests
+        - chmod -R 777 app/tmp
         - mkdir -p app2/tmp/tests
-        - chmod -R 777 app2/tmp/tests
+        - chmod -R 777 app2/tmp
         - cd $HOME/$CIRCLE_PROJECT_REPONAME/
         - npm install -g phantomjs@1.9.7-14
         - npm install -g casperjs
