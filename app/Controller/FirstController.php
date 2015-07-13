@@ -3,13 +3,19 @@ App::uses('AppController', 'Controller');
 
 class FirstController extends AppController {
 
-	public $uses = array('First');
+	public $uses = array('First', 'MyRedis');
 
 	public function index() {
         $this->layout = "first_layout";
         $this->title = "first application";
 
         $data = $this->First->getAllData();
-        $this->set(compact("data"));
+
+        $this->MyRedis->set('key', 'value');
+        $this->MyRedis->get('key');
+        $this->MyRedis->incr('pv');
+        $pv = $this->MyRedis->get('pv');
+
+        $this->set(compact("data", "pv"));
 	}
 }

@@ -10,4 +10,7 @@ First Application.
         </div>
 <?php endforeach; ?>
     </div>
+    <div class="redis">
+        PV(redis); <?php echo $pv; ?>
+    </div>
 </div>
