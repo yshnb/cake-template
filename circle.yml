@@ -17,9 +17,9 @@ dependencies:
         - mkdir -p app2/tmp/tests
         - chmod -R 777 app2/tmp/tests
         - cd $HOME/$CIRCLE_PROJECT_REPONAME/
-        - npm install phantomjs@1.9.7-14
-        - npm install casperjs
-        - export PATH=$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/.bin
+        - npm install -g phantomjs@1.9.7-14
+        - npm install -g casperjs
+        - php -S localhost:8080 -c ~/.phpenv/versions/$(phpenv global)/etc/conf.d/ -t app/webroot
     post:
         - echo "<?php
           class DATABASE_CONFIG {
