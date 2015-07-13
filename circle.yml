@@ -93,7 +93,7 @@ test:
           - mysql -h 127.0.0.1 -u ubuntu sample_db < ./e2e/default.sql
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
-          - cd e2e/
+          - cd $HOME/$CIRCLE_PROJECT_REPONAME/e2e/
           - casperjs test casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
