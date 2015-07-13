@@ -16,6 +16,10 @@ dependencies:
         - chmod -R 777 app/tmp/tests
         - mkdir -p app2/tmp/tests
         - chmod -R 777 app2/tmp/tests
+        - cd $HOME/$CIRCLE_PROJECT_REPONAME/
+        - npm install phantomjs@1.9.7-14
+        - npm install casperjs
+        - export PATH=$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/.bin
     post:
         - echo "<?php
           class DATABASE_CONFIG {
@@ -62,17 +66,12 @@ dependencies:
               );
           }" > app2/Config/database.php
 test:
-      pre:
-          - cd $HOME/$CIRCLE_PROJECT_REPONAME/
-          - npm install phantomjs@1.9.7-14
-          - npm install casperjs
-          - export PATH=$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/.bin
       override:
           - ./app/Console/cake Migrations.migration run all -p
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
           - cd e2e/
-          - cd casperjs test casper.js
+          - casperjs test casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
