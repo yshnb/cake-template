@@ -84,6 +84,7 @@ dependencies:
           }" > app2/Config/database.php
 test:
       override:
+          - sudo service apache2 restart
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
           - ./Vendor/bin/phing build
@@ -93,7 +94,6 @@ test:
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
           - cd e2e/
-          - sleep 5
           - casperjs test casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
