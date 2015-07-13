@@ -73,7 +73,8 @@ test:
           - sudo chmod -R 777 app2/tmp
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
-          - ./app/Console/cake schema create
+          - ./app/Console/cake schema create -y
+          - mysql -h 127.0.0.1 -u ubuntu sample_db < ./e2e/default.sql
           - cd e2e/
           - casperjs test casper.js
       post:
