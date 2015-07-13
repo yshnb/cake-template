@@ -91,6 +91,7 @@ test:
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
           - cd $HOME/$CIRCLE_PROJECT_REPONAME/e2e/
+          - pwd
           - casperjs test casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
