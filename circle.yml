@@ -45,7 +45,7 @@ dependencies:
               'prefix' => ''
               );
 
-              public $redis = array(
+              public \$redis = array(
               'datasource' => 'Redis.RedisSource',
               'host' => 'localhost',
               'port' => '6379',
@@ -74,7 +74,7 @@ dependencies:
               'prefix' => ''
               );
 
-              public $redis = array(
+              public \$redis = array(
               'datasource' => 'Redis.RedisSource',
               'host' => 'localhost',
               'port' => '6379',

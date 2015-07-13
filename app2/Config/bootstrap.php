@@ -108,4 +108,4 @@ App::build(array(
         ));
 
 CakePlugin::load('DebugKit');
-
+CakePlugin::load('Redis');
