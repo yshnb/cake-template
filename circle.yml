@@ -69,8 +69,11 @@ dependencies:
           }" > app2/Config/database.php
 test:
       override:
+          - sudo chmod -R 777 app/tmp
+          - sudo chmod -R 777 app2/tmp
           - ./Vendor/bin/phing build
           - find . -type f -regex ".*tests/junit.*.xml" -exec cat {} \;
+          - ./app/Console/cake schema create
           - cd e2e/
           - casperjs test casper.js
       post:
