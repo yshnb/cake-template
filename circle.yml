@@ -19,6 +19,7 @@ dependencies:
         - cd $HOME/$CIRCLE_PROJECT_REPONAME/
         - npm install -g phantomjs@1.9.7-14
         - npm install -g casperjs
+        - pecl install redis
         - cp $HOME/$CIRCLE_PROJECT_REPONAME/app.conf /etc/apache2/sites-available
         - a2ensite app.conf
         - sudo service apache2 restart
@@ -92,6 +93,7 @@ test:
           - sudo chmod -R 777 app/tmp
           - sudo chmod -R 777 app2/tmp
           - cd e2e/
+          - sleep 5
           - casperjs test casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
