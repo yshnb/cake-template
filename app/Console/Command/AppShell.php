@@ -18,4 +18,9 @@ App::uses('Shell', 'Console');
  */
 class AppShell extends Shell {
 
+    public function perform() {
+        $this->initialize();
+        $this->loadTasks();
+        return $this->runCommand($this->args[0], $this->args);
+    }
 }

@@ -111,4 +111,18 @@ CakePlugin::load('DebugKit');
 CakePlugin::load('Migrations');
 CakePlugin::load('Redis');
 
-//App::import('Vendor', 'Mustache');
+//CakePlugin::load(array( # or CakePlugin::loadAll(array(
+//    'CakeResque' => array('bootstrap' => true)
+//));
+
+CakePlugin::load(
+    array(
+        'CakeResque' => array(
+            'bootstrap' => array(
+                'bootstrap_config',
+                '../../../app/Config/cakeresque_config',
+                'bootstrap'
+            )
+        )
+    )
+);

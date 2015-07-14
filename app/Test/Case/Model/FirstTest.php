@@ -23,4 +23,10 @@ class FirstTest extends CakeTestCase {
         $data = $this->First->getAllData();
         $this->assertEquals(3, count($data));
     }
+
+    public function testGetUniq() {
+        $data = $this->First->getUniq(1);
+        $this->assertEquals(1, count($data));
+        $this->assertEquals(1, $data['First']['id']);
+    }
 }

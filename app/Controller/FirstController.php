@@ -22,7 +22,7 @@ class FirstController extends AppController {
 	}
 
 	public function templ() {
-        //$this->autorender = false;
+        //$this->autoRender = false;
         $this->layout = "";
 
         $params = array(
@@ -31,4 +31,11 @@ class FirstController extends AppController {
         );
         $this->set(compact('params'));
 	}
+
+    public function q() {
+        $this->autoRender = false;
+        $data = $this->First->getUniq(2);
+        var_dump($data);
+        CakeResque::enqueue('default', 'FirstShell', array('findNewFirst', $data['First']['id']));
+    }
 }
