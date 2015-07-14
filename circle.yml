@@ -43,6 +43,13 @@ dependencies:
               'port' => '6379',
               'db' => '0'
               );
+
+              public \$test_redis = array(
+              'datasource' => 'Redis.RedisSource',
+              'host' => 'localhost',
+              'port' => '6379',
+              'db' => '1'
+              );
           }" > app/Config/database.php
         - echo "<?php
           class DATABASE_CONFIG {
@@ -71,6 +78,13 @@ dependencies:
               'host' => 'localhost',
               'port' => '6379',
               'db' => '0'
+              );
+
+              public \$test_redis = array(
+              'datasource' => 'Redis.RedisSource',
+              'host' => 'localhost',
+              'port' => '6379',
+              'db' => '1'
               );
           }" > app2/Config/database.php
         - chmod -R 777 app/tmp

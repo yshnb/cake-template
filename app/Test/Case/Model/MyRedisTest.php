@@ -5,7 +5,7 @@ App::uses('MyRedis', 'Model');
 class MyRedisTest extends CakeTestCase {
 
     public $fixtures = array(
-        'app.myredis'
+        'app.my_redis'
     );
 
     public function setUp() {
