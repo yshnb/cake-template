@@ -6,6 +6,7 @@ class RoutesTest extends CakeTestCase {
         return [
             ['First', '/', ['controller' => 'first', 'action' => 'index']],
             ['Second', '/second', ['controller' => 'second', 'action' => 'index']],
+            ['template test', '/templ', ['controller' => 'first', 'action' => 'templ']],
         ];
     }
 

@@ -110,3 +110,5 @@ App::build(array(
 CakePlugin::load('DebugKit');
 CakePlugin::load('Migrations');
 CakePlugin::load('Redis');
+
+//App::import('Vendor', 'Mustache');
