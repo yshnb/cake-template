@@ -7,7 +7,7 @@
 
     <target name="phpcs" description="PHPCS">
         <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
-            <formatter type="checkstyle" outfile="${basedir}/tmp/tests/app/phpcs.xml" />
+            <formatter type="checkstyle" outfile="${basedir}/tmp/tests/app2/phpcs.xml" />
         </phpcodesniffer>
     </target>
 
@@ -17,7 +17,7 @@
                 <include name="${basedir}/**/*.php" />
                 <exclude name="${basedir}/Vendor/" />
             </fileset>
-            <formatter type="xml" outfile="${basedir}/tmp/tests/app/phpmd.xml" />
+            <formatter type="xml" outfile="${basedir}/tmp/tests/app2/phpmd.xml" />
         </phpmd>
     </target>
 
@@ -27,7 +27,7 @@
                 <include name="**/**/*.php"/>
             </fileset>
             <formatter type="pmd"
-                outfile="${basedir}/tmp/tests/app/cpd.xml"/>
+                outfile="${basedir}/tmp/tests/app2/cpd.xml"/>
         </phpcpd>
     </target>
 
@@ -37,7 +37,7 @@
             <arg line="--log-junit=${basedir}/tmp/tests/junit2.xml" />
             <arg line="app" />
             <arg line="AllTests" />
-            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage2" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app2/coverage2" />
         </exec>
     </target>
 
@@ -46,7 +46,7 @@
             <arg line="test" />
             <arg line="app" />
             <arg line="AllTests" />
-            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage2" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app2/coverage2" />
         </exec>
     </target>
 
