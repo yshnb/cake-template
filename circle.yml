@@ -107,8 +107,8 @@ test:
           - casperjs test ./e2e/casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
-          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/tests/coverage $CIRCLE_ARTIFACTS/ \;
-          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app2/tmp/tests/coverage2 $CIRCLE_ARTIFACTS/ \;
+          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/tests/coverage $CIRCLE_ARTIFACTS/
+          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app2/tmp/tests/coverage2 $CIRCLE_ARTIFACTS/
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -R $CIRCLE_TEST_REPORTS/* $CIRCLE_ARTIFACTS/
