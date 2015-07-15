@@ -14,6 +14,7 @@ dependencies:
         - composer install --prefer-source --no-interaction
         - mkdir -p app/tmp/tests/coverage
         - mkdir -p app2/tmp/tests/coverage
+        - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     post:
         - echo "<?php
           class DATABASE_CONFIG {
@@ -106,6 +107,7 @@ test:
           - casperjs test ./e2e/casper.js
       post:
           - find . -type f -regex ".*/app.*/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/ \;
+          - find . -type d -regex ".*/app.*/tests/coverage.*" -exec cp {} $CIRCLE_ARTIFACTS/ \;
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -R $CIRCLE_TEST_REPORTS/* $CIRCLE_ARTIFACTS/
