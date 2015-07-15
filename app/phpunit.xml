@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit verbose="false">
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./</directory>
+            <exclude>
+                <file>./index.php</file>
+                <file>./Console/Command/AppShell.php</file>
+                <file>./Console/cake.php</file>
+                <directory suffix=".php">./Config/</directory>
+                <directory suffix=".php">./Test/</directory>
+                <directory suffix=".php">./Test/</directory>
+                <directory suffix=".php">./View/</directory>
+                <directory suffix=".php">./webroot/</directory>
+                <directory suffix=".php">./webroot/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -38,6 +38,7 @@
             <arg line="--log-junit=${basedir}/tmp/tests/junit.xml" />
             <arg line="app" />
             <arg line="AllTests" />
+            <arg line="--configuration ${basedir}/phpunit.xml" />
             <arg line="--coverage-html ${basedir}/tmp/tests/coverage" />
         </exec>
     </target>
@@ -47,6 +48,7 @@
             <arg line="test" />
             <arg line="app" />
             <arg line="AllTests" />
+            <arg line="--configuration ${basedir}/phpunit.xml" />
             <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage" />
         </exec>
     </target>
