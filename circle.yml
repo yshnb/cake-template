@@ -12,8 +12,8 @@ dependencies:
     pre:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
         - composer install --prefer-source --no-interaction
-        - mkdir -p app/tmp/tests/coverage
-        - mkdir -p app2/tmp/tests/coverage
+        - mkdir -p app/tmp/tests/app
+        - mkdir -p app2/tmp/tests/app2
         - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     post:
         - echo "<?php
@@ -106,15 +106,10 @@ test:
           - sudo chmod -R 777 app2/tmp
           - casperjs test ./e2e/casper.js
       post:
-          - mkdir $CIRCLE_ARTIFACTS/app
-          - find . -type f -regex ".*/app/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/app/ \;
-          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/tests/coverage $CIRCLE_ARTIFACTS/
           - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/tests/app $CIRCLE_ARTIFACTS/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-          - mkdir $CIRCLE_ARTIFACTS/app2
-          - find . -type f -regex ".*/app2/tests/.*.xml" -exec cp {} $CIRCLE_ARTIFACTS/app2/ \;
-          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app2/tmp/tests/coverage2 $CIRCLE_ARTIFACTS/
-          - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+          - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app2/tmp/tests/app2 $CIRCLE_ARTIFACTS/
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
 
