@@ -106,10 +106,10 @@ test:
           - sudo chmod -R 777 app2/tmp
           - casperjs test ./e2e/casper.js
       post:
-          - mkdir -p $CIRCLE_TEST_REPORTS/junit/
           - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/tests/app $CIRCLE_ARTIFACTS/
-          - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - cp -a $HOME/$CIRCLE_PROJECT_REPONAME/app2/tmp/tests/app2 $CIRCLE_ARTIFACTS/
+          - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+          - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
           - find . -type f -regex ".*tests/junit.*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
 

@@ -8,7 +8,7 @@
     <target name="phpcs" description="PHPCS">
         <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
             <!--<formatter type="checkstyle" outfile="${basedir}/tmp/tests/phpcs.xml" />-->
-            <formatter type="checkstyle" usefile="true" outfile="${basedir}/tmp/tests/phpmd.xml" />
+            <formatter type="checkstyle" usefile="true" outfile="${basedir}/tmp/tests/app/phpmd.xml" />
         </phpcodesniffer>
     </target>
 
@@ -18,7 +18,7 @@
                 <include name="${basedir}/**/*.php" />
                 <exclude name="${basedir}/Vendor/" />
             </fileset>
-            <formatter type="xml" outfile="${basedir}/tmp/tests/phpmd.xml" />
+            <formatter type="xml" outfile="${basedir}/tmp/tests/app/phpmd.xml" />
         </phpmd>
     </target>
 
@@ -28,7 +28,7 @@
                 <include name="**/**/*.php"/>
             </fileset>
             <formatter type="pmd"
-                outfile="${basedir}/tmp/tests/cpd.xml"/>
+                outfile="${basedir}/tmp/tests/app/cpd.xml"/>
         </phpcpd>
     </target>
 
@@ -47,7 +47,7 @@
             <arg line="test" />
             <arg line="app" />
             <arg line="AllTests" />
-            <arg line="--coverage-html ${basedir}/tmp/tests/coverage" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage" />
         </exec>
     </target>
 
