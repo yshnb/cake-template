@@ -37,6 +37,7 @@
             <arg line="--log-junit=${basedir}/tmp/tests/junit2.xml" />
             <arg line="app" />
             <arg line="AllTests" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/coverage" />
         </exec>
     </target>
 
@@ -45,6 +46,7 @@
             <arg line="test" />
             <arg line="app" />
             <arg line="AllTests" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/coverage" />
         </exec>
     </target>
 

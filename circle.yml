@@ -12,8 +12,8 @@ dependencies:
     pre:
         - composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
         - composer install --prefer-source --no-interaction
-        - mkdir -p app/tmp/tests
-        - mkdir -p app2/tmp/tests
+        - mkdir -p app/tmp/tests/coverage
+        - mkdir -p app2/tmp/tests/coverage
     post:
         - echo "<?php
           class DATABASE_CONFIG {

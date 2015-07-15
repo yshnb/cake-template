@@ -1,6 +1,6 @@
 #!/usr/bin/php -q
 <?php
-ini_set('include_path', ini_get('include_path').':'.dirname('.').'/Vendor/cakephp/cakephp/lib/');
+//ini_set('include_path', ini_get('include_path').':'.dirname('.').'/Vendor/cakephp/cakephp/lib/');
 
 /**
  * Command-line code generation utility to automate programmer chores.

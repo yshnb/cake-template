@@ -21,8 +21,10 @@ class FirstController extends AppController {
         $this->set(compact("first", "pv"));
 	}
 
+    /**
+     * Mustache sample.
+     */
 	public function templ() {
-        //$this->autoRender = false;
         $this->layout = "";
 
         $params = array(
@@ -36,6 +38,6 @@ class FirstController extends AppController {
         $this->autoRender = false;
         $data = $this->First->getUniq(2);
         var_dump($data);
-        CakeResque::enqueue('default', 'FirstShell', array('findNewFirst', $data['First']['id']));
+        //CakeResque::enqueue('default', 'FirstShell', array('findNewFirst', $data['First']['id']));
     }
 }
