@@ -38,7 +38,7 @@
             <arg line="app" />
             <arg line="AllTests" />
             <arg line="--configuration ${basedir}/phpunit.xml" />
-            <arg line="--coverage-html ${basedir}/tmp/tests/coverage" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage" />
         </exec>
     </target>
 
