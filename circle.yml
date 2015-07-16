@@ -5,6 +5,7 @@ machine:
     services:
         - mysql
         - redis
+        - postgresql
 database:
     post:
         - mysql -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/setup.sql
