@@ -28,7 +28,7 @@ if (function_exists('ini_set')) {
 	$root = dirname(dirname(dirname(__FILE__)));
 	$appDir = basename(dirname(dirname(__FILE__)));
 	$install = $root . DS . 'lib';
-	$composerInstall = $root . DS . $appDir . DS . 'Vendor' . DS . 'cakephp' . DS . 'cakephp' . DS . 'lib';
+	$composerInstall = $root . DS . 'Vendor' . DS . 'cakephp' . DS . 'cakephp' . DS . 'lib';
 
 	// the following lines differ from its sibling
 	// /app/Console/cake.php
