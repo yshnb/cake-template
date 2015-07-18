@@ -7,8 +7,8 @@
         <phing phingfile="app2/build.xml" inheritRefs="true" haltonfailure="true">
             <property name="basedir" value="./app2" />
         </phing>
-	<phing phingfile="LocalPlugin/Some/build.xml" target="local-build" inheritRefs="true">
-		<property name="basedir" value="./LocalPlugin/Some" />
+	<phing phingfile="FeaturePlugin/Some/build.xml" target="local-build" inheritRefs="true">
+		<property name="basedir" value="./FeaturePlugin/Some" />
         </phing>
     </target>
     <target name="local-build" >
@@ -18,8 +18,8 @@
         <phing phingfile="app2/build.xml" target="local-build" inheritRefs="true">
             <property name="basedir" value="./app2" />
         </phing>
-	<phing phingfile="LocalPlugin/Some/build.xml" target="local-build" inheritRefs="true">
-		<property name="basedir" value="./LocalPlugin/Some" />
+	<phing phingfile="FeaturePlugin/Some/build.xml" target="local-build" inheritRefs="true">
+		<property name="basedir" value="./FeaturePlugin/Some" />
         </phing>
     </target>
 </project>

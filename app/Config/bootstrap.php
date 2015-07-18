@@ -104,7 +104,7 @@ CakeLog::config('error', array(
 
 App::build(array(
         'Vendor' => array(ROOT . '/Vendor/'),
-        'Plugin' => array(ROOT . '/Plugin/', ROOT . '/LocalPlugin/')
+        'Plugin' => array(ROOT . '/Plugin/', ROOT . '/FeaturePlugin/')
 ));
 
 CakePlugin::load('DebugKit');
@@ -126,3 +126,8 @@ CakePlugin::load(
         )
     )
 );
+
+App::uses('Resque_Job_Creator', 'CakeResque.Lib');
+Resque_Job_Creator::$rootFolder = APP;
+
+
