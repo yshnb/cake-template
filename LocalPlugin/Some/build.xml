@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="SomePlugin" default="build">
+    <property name="basedir" value="." override="true" />
+
+    <target name="build" depends="phpunit, phpcs, phpmd, phpcpd" />
+    <target name="local-build" depends="local-phpunit, phpcs, phpmd, phpcpd" />
+
+    <target name="phpcs" description="PHPCS">
+        <phpcodesniffer standard="Zend" file="${basedir}/" allowedFileExtensions="php">
+            <formatter type="checkstyle" outfile="${basedir}/tmp/tests/app/phpcs.xml" />
+        </phpcodesniffer>
+    </target>
+
+    <target name="phpmd">
+        <phpmd rulesets="${basedir}/../ruleset.xml">
+            <fileset dir="./">
+                <include name="${basedir}/**/*.php" />
+                <exclude name="${basedir}/Vendor/" />
+            </fileset>
+            <formatter type="xml" outfile="${basedir}/tmp/tests/app/phpmd.xml" />
+        </phpmd>
+    </target>
+
+    <target name="phpcpd" description="PHPCPD">
+        <phpcpd minTokens="10">
+            <fileset dir="${basedir}">
+                <include name="**/**/*.php"/>
+            </fileset>
+            <formatter type="pmd"
+                outfile="${basedir}/tmp/tests/app/cpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <target name="phpunit" >
+        <exec executable="${basedir}/Console/cake" checkreturn="true">
+            <arg line="test" />
+            <arg line="--log-junit=${basedir}/tmp/tests/junit.xml" />
+            <arg line="app" />
+            <arg line="SomeAllTests" />
+            <arg line="--configuration ${basedir}/phpunit.xml" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage" />
+        </exec>
+    </target>
+
+    <target name="local-phpunit" >
+        <exec executable="${basedir}/Console/cake" logoutput="true">
+            <arg line="test" />
+            <arg line="app" />
+            <arg line="SomeAllTests" />
+            <arg line="--configuration ${basedir}/phpunit.xml" />
+            <arg line="--coverage-html ${basedir}/tmp/tests/app/coverage" />
+        </exec>
+    </target>
+
+</project>

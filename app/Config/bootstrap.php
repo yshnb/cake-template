@@ -104,8 +104,8 @@ CakeLog::config('error', array(
 
 App::build(array(
         'Vendor' => array(ROOT . '/Vendor/'),
-            'Plugin' => array(ROOT . '/Plugin/')
-        ));
+        'Plugin' => array(ROOT . '/Plugin/', ROOT . '/LocalPlugin/')
+));
 
 CakePlugin::load('DebugKit');
 CakePlugin::load('Migrations');

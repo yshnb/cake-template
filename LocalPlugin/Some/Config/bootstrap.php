@@ -1,6 +1,6 @@
 <?php
 
-require APP . '../Vendor/autoload.php';
+require APP . '../../Vendor/autoload.php';
 spl_autoload_unregister(array('App', 'load'));
 spl_autoload_register(array('App', 'load'), true, true);
 
@@ -101,11 +101,32 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
-
-App::build(array(
-	'Vendor' => array(ROOT . '/Vendor/'),
-	'Plugin' => array(ROOT . '/Plugin/', ROOT . '/LocalPlugin/')
+CakeLog::config('adevents', array(
+	'engine' => 'FileLog',
+	'types' => array('info'),
+	'scopes' => array('adevents'),
+	'file' => "adevents.log",
 ));
 
-CakePlugin::load('DebugKit');
+App::build(array(
+        'Vendor' => array(ROOT . '/../Vendor/'),
+        'Plugin' => array(ROOT . '/../Plugin/')
+));
+
 CakePlugin::load('Redis');
+
+//CakePlugin::load(array( # or CakePlugin::loadAll(array(
+//    'CakeResque' => array('bootstrap' => true)
+//));
+
+CakePlugin::load(
+    array(
+        'CakeResque' => array(
+            'bootstrap' => array(
+                'bootstrap_config',
+                '../../../app/Config/cakeresque_config',
+                'bootstrap'
+            )
+        )
+    )
+);

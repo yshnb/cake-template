@@ -13,6 +13,12 @@ app/tmp
 /*/Config/email.php
 /vendors/*
 
+/*/*/tmp/*
+/*/*/Config/database.php
+/*/*/Config/email.php
+/*/*/reports
+/vendors/*
+
 composer.lock
 
 node_modules/
